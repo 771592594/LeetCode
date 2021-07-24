@@ -1,26 +1,42 @@
 class ListNode:
-    def __init__(self, val=0, next=None):
+    def __init__(self, val, next=None):
         self.val = val
         self.next = next
 
-
-def create_list_node(arr: list):
-    if len(arr) == 0:
-        return None
-    head = ListNode(0)
-    temp = head
-    for i in arr:
-        temp.next = ListNode(i)
-        temp = temp.next
-    return head.next
+    def __str__(self) -> str:
+        return str(self.val)
 
 
-def show(node: ListNode):
-    s = "["
-    cnt = 0
-    while node:
-        s += str(node.val) if cnt == 0 else ", " + str(node.val)
-        node = node.next
-        cnt += 1
-    s += "]"
-    print(s)
+def create_list_node(arr: list) -> ListNode:
+    return ListNode(arr[0], create_list_node(arr[1:])) if arr else None
+
+
+def traverse(node: ListNode):
+    if not node:
+        return
+    print(node.val, end=" ")
+    traverse(node.next)
+
+
+def remove(head: ListNode, val: int) -> ListNode:
+    cur, v_head = head, ListNode(0)
+    last = v_head
+    while cur:
+        if cur.val != val:
+            last.next = cur
+            last = last.next
+        cur = cur.next
+    return v_head.next
+
+
+def deleteNode(node: ListNode):
+    node.val = node.next.val
+    node.next = node.next.next
+
+
+if __name__ == '__main__':
+    node2 = ListNode(2)
+    node1 = ListNode(1, node2)
+    node = ListNode(0, node1)
+    deleteNode(node1)
+    traverse(node)

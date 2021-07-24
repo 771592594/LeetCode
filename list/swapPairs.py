@@ -1,7 +1,6 @@
 from common.ListNode import *
 
 
-# 24. 两两交换链表中的节点
 class Solution:
     def rec(self, node: ListNode):
         if node and node.next and node.next.next:
