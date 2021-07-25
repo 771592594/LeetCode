@@ -12,10 +12,10 @@ def create_list_node(arr: list) -> ListNode:
 
 
 def traverse(node: ListNode):
-    if not node:
-        return
-    print(node.val, end=" ")
-    traverse(node.next)
+    while node:
+        print(node.val, end=" ")
+        node = node.next
+    print()
 
 
 def remove(head: ListNode, val: int) -> ListNode:

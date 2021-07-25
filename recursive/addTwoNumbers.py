@@ -21,6 +21,6 @@ class Solution:
 if __name__ == '__main__':
     l1 = create_list_node([9, 9, 9, 9, 9, 9, 9])
     l2 = create_list_node([9, 9, 9, 9])
-    show(l1)
-    show(l2)
-    show(Solution().addTwoNumbers(l1, l2))
+    traverse(l1)
+    traverse(l2)
+    traverse(Solution().addTwoNumbers(l1, l2))
