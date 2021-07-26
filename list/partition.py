@@ -1,7 +1,14 @@
 from common.ListNode import *
 
 
+# 面试题 02.04. 分割链表
 class Solution:
+    """
+    分割 + 合并
+    新建两个链表ge和lt
+    遍历输入的链表，将值大于等于x的节点尾插到ge链表中，将值小于x的节点尾插到lt链表
+    最后拼接链表 lt->ge
+    """
     def partition(self, head: ListNode, x: int) -> ListNode:
         ge_dummy, lt_gummy = ListNode(0), ListNode(0)
         ge_last, lt_last = ge_dummy, lt_gummy

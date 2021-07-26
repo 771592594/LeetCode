@@ -1,15 +1,16 @@
 from common.ListNode import *
 
 
+# 206. 反转链表
 class Solution:
     def reverseList(self, head: ListNode) -> ListNode:
-        v_head = ListNode(0)
+        dummy = ListNode(0)
         while head:
             next = head.next
-            head.next = v_head.next
-            v_head.next = head
+            head.next = dummy.next
+            dummy.next = head
             head = next
-        return v_head.next
+        return dummy.next
 
 
 if __name__ == '__main__':

@@ -1,6 +1,7 @@
 from common.ListNode import *
 
 
+# 141. 环形链表
 class Solution:
     def hasCycle(self, head: ListNode) -> bool:
         slow, fast = head, head

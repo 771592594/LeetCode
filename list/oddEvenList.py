@@ -1,7 +1,11 @@
 from common.ListNode import *
 
 
+# 328. 奇偶链表
 class Solution:
+    """
+    分割 + 拼接
+    """
     def oddEvenList(self, head: ListNode) -> ListNode:
         cnt = 1
         odd_dummy, even_dummy = ListNode(0), ListNode(0)

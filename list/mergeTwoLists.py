@@ -1,10 +1,11 @@
 from common.ListNode import *
 
 
+# 剑指 Offer 25. 合并两个排序的链表
 class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
-        v_head = ListNode(0)
-        temp = v_head
+        dummy = ListNode(0)
+        temp = dummy
         while l1 and l2:
             if l1.val < l2.val:
                 temp.next = l1
@@ -14,7 +15,7 @@ class Solution:
                 l2 = l2.next
             temp = temp.next
         temp.next = l1 if l1 else l2
-        return v_head.next
+        return dummy.next
 
 
 if __name__ == '__main__':

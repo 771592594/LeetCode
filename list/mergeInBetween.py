@@ -1,7 +1,13 @@
 from common.ListNode import *
 
 
+# 1669. 合并两个链表
 class Solution:
+    """
+    链表分割 + 拼接
+    遍历list1找到第a-1个节点A和第b+1个节点B（本题目索引从0开始）
+    拼接链表：A->list2->B
+    """
     def mergeInBetween(self, list1: ListNode, a: int, b: int, list2: ListNode) -> ListNode:
         temp, b = list1, b + 1
         pre_a, pre_b = None, None
