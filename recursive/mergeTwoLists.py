@@ -30,4 +30,4 @@ if __name__ == '__main__':
         create_list_node([1, 2, 4]),
         create_list_node([1, 3, 4])
     )
-    show(li)
+    traverse(li)

@@ -1,8 +1,9 @@
 from typing import List
 
 
+# 47. 全排列 II
 class Solution:
-    def rec(self, nums: List[int], used: List[int], cur: List[int], ret: List[List[int]]) -> List[List[int]]:
+    def backtrack(self, nums: List[int], used: List[int], cur: List[int], ret: List[List[int]]) -> List[List[int]]:
         if all(used):
             ret.append(list(cur))
             return ret
@@ -12,14 +13,14 @@ class Solution:
                 continue
             used[i] = 1
             cur.append(nums[i])
-            self.rec(nums, used, cur, ret)
+            self.backtrack(nums, used, cur, ret)
             used[i] = 0
             cur.pop()
         return ret
 
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
-        return self.rec(nums, [0 for _ in range(len(nums))], [], [])
+        return self.backtrack(nums, [0 for _ in range(len(nums))], [], [])
 
 
 if __name__ == '__main__':

@@ -20,7 +20,6 @@ class Solution:
     插入法
     将不满足 node.val = val 的节点插入到新链表中
     """
-    # todo 博客上有错误
     def removeElements(self, head: ListNode, val: int) -> ListNode:
         dummy = ListNode(0, head)
         tail, node = dummy, head

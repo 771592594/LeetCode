@@ -17,4 +17,4 @@ class Solution:
 
 
 if __name__ == '__main__':
-    show(Solution().reverseList(create_list_node([1, 2, 3, 4, 5])))
+    traverse(Solution().reverseList(create_list_node([1, 2, 3, 4, 5])))
