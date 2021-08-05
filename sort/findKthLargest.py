@@ -1,7 +1,15 @@
 from typing import List
 
 
+# 215. 数组中的第K个最大元素
 class Solution:
+    """
+    1. 将原数组转化成大根堆，进行K次pop()操作，得到第K大
+
+    2. 根据截取原数组的前K个元素创建大小为K的小根堆，
+    将剩余元素与根比较，比根大则插入堆中，并移除根节点
+    这样构造出的最小堆的根元素就是最大第K个元素
+    """
     def findKthLargest(self, nums: List[int], k: int) -> int:
         def __down(node, size):
             """
