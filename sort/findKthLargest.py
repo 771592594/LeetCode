@@ -4,7 +4,7 @@ from typing import List
 # 215. 数组中的第K个最大元素
 class Solution:
     """
-    1. 将原数组转化成大根堆，进行K次pop()操作，得到第K大
+    1. 将原数组转化成大根堆，进行K-1次pop()操作后，堆顶就是第第K大的节点
 
     2. 根据截取原数组的前K个元素创建大小为K的小根堆，
     将剩余元素与根比较，比根大则插入堆中，并移除根节点
@@ -33,10 +33,10 @@ class Solution:
             max_heap.append(nums[i])
             __down(i, size)
         # 堆排序K次
-        for i in range(k):
+        for i in range(k - 1):
             nums[0], nums[size - i - 1] = nums[size - i - 1], nums[0]
             __down(0, size - i - 1)
-        return nums[size - k]
+        return nums[0]
 
 
 if __name__ == '__main__':
