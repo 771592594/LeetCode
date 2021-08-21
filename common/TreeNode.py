@@ -34,6 +34,8 @@ def create_tree(arr: List[int]):
     def rec_create(i):
         if i >= len(arr):
             return None
+        if arr[i] is None:
+            return arr[i]
         if i in node_dict:
             return node_dict[i]
         node = TreeNode(arr[i], rec_create(i * 2 + 1), rec_create(i * 2 + 2))
