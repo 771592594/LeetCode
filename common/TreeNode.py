@@ -11,7 +11,7 @@ class TreeNode:
         return str(self.val)
 
 
-def traverse(node: TreeNode):
+def traverse(node):
     if not node:
         print([])
     queue = [node]
@@ -22,11 +22,9 @@ def traverse(node: TreeNode):
             node = queue.pop(0)
             nodes.append(node)
             if node:
-                if node.left:
-                    queue.append(node.left)
-                if node.right:
-                    queue.append(node.right)
-            print(node, end=" ")
+                queue.append(node.left)
+                queue.append(node.right)
+            print(str(node), end=" ")
         print()
 
 
