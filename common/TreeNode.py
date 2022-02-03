@@ -34,18 +34,11 @@ def create_tree(arr: List[int]):
     def rec_create(i):
         if i >= len(arr) or arr[i] is None:
             return None
-        if i in node_dict:
-            return node_dict[i]
-        node = TreeNode(arr[i], rec_create(i * 2 + 1), rec_create(i * 2 + 2))
-        node_dict[i] = node
+        node = TreeNode(arr[i], None, None)
+        node.left, node.right = rec_create(i * 2 + 1), rec_create(i * 2 + 2)
         return node
 
-    if not arr:
-        return None
-    node_dict = {}
-    for idx, num in enumerate(arr):
-        rec_create(idx)
-    return node_dict[0]
+    return rec_create(0) if arr else None
 
 
 if __name__ == '__main__':
